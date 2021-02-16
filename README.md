@@ -74,7 +74,7 @@ default.value.serde=org.apache.kafka.common.serialization.Serdes$StringSerde
 ```
 Run:
 ```sh
-$ java -jar kafka-json-schema-validator-jar-with-dependencies.jar -s schema.json -i my-input -o my-output -e invalid
+$ java -jar kafka-json-schema-validator.jar -s schema.json -i my-input -o my-output -e invalid
 ```
 This command reads every message from `my-input` topic.
 
@@ -85,7 +85,11 @@ If there are some validation errors, then puts the message along with the valida
 **Sample invalid JSON message sent to error topic**
 ```json
 {
-  "errors" : ["#: 2 schema violations found", "#/str: expected type: String, found: Integer", "#/number: -42 is not greater or equal to 0"],
+  "errors" : [
+    "#: 2 schema violations found", 
+    "#/str: expected type: String, found: Integer", 
+    "#/number: -42 is not greater or equal to 0"
+  ],
   "inputRaw": "{\"str\": 123,\"number\": -42}"
 }
 ```
