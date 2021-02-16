@@ -141,7 +141,7 @@ public class KafkaJsonSchemaValidator {
         invalidTopicArg.setRequired(false);
         options.addOption(invalidTopicArg);
 
-        Option propertiesArg = new Option("p", "properties", false, "properties (default='stream.properties')");
+        Option propertiesArg = new Option("p", "properties", true, "properties (default='stream.properties')");
         propertiesArg.setRequired(false);
         options.addOption(propertiesArg);
 
