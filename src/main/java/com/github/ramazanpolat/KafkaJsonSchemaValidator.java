@@ -51,15 +51,13 @@ public class KafkaJsonSchemaValidator {
         ArrayList<String> violations = new ArrayList<>();
         try {
             schema1.validate(new JSONObject(rawInput));
-            System.out.println("Valid: " + rawInput);
+            //System.out.println("Valid: " + rawInput);
         } catch (ValidationException e) {
             System.err.println("Error on validateSchema1: " + e.getMessage());
             violations.add(e.getMessage());
             e.getCausingExceptions().stream()
                     .map(ValidationException::getMessage)
                     .forEach(violations::add);
-            System.out.println("violations count:" + violations.size());
-            System.out.println(violations.toString());
         } catch (Exception e) {
             System.err.println("Error on validateSchema2: " + e.getMessage());
             violations.add("This is not a properly formatted JSON: " + e.getMessage());

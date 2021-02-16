@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "http://json-schema.org/draft-07/schema#",
-  "title": "Json Validator Stream - Test schema",
+  "title": "Kafka Json Schema Validator Stream - Test schema",
   "definitions": {
   },
   "type": "object",

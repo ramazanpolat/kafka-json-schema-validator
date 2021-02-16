@@ -64,4 +64,21 @@ public class KafkaJsonSchemaValidatorTest {
         }
     }
 
+    @Test
+    public void testSchemaViolations4() {
+        /* testing with a properly formatted BUT schema-INVALID JSON with multiple violations*/
+        String json = "{\"str\": 123,\"number\": -42}";
+        try {
+            Schema schema = KafkaJsonSchemaValidator.loadSchema("testSchema1.json");
+            ArrayList<String> violations = KafkaJsonSchemaValidator.validateString(schema, json);
+            for (String s : violations)
+                System.out.println("* " + s);
+
+            assert violations.size() > 0;
+        } catch (Exception ex) {
+            System.err.println("THIS MUST NOT TO BE PRINTED!");
+            assert false;
+        }
+    }
+
 }
